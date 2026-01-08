@@ -95,7 +95,7 @@ function highlightUrlParams(url) {
                 // Use the darker color for text with full opacity for maximum readability
                 const textColor = color;
                 // Color the entire parameter with high contrast for readability
-                highlightedUrl += `${separator}<span class="url-param" style="background: ${bgColor}; border-left: 4px solid ${color}; padding: 4px 10px; margin: 0 4px;"><span class="url-param-name" style="color: ${textColor}; font-weight: 700; font-size: 1em;">${paramName}</span><span style="color: ${textColor}; margin: 0 3px; font-weight: 600;">=</span><span class="url-param-value" style="color: ${textColor}; font-weight: 600;">${paramValue}</span></span>`;
+                highlightedUrl += `${separator}<span class="url-param" style="background: ${bgColor}; border-left: 4px solid ${color}; padding: 4px 10px; margin: 2px 4px; display: inline-block;"><span class="url-param-name" style="color: ${textColor}; font-weight: 700; font-size: 1em;">${paramName}</span><span style="color: ${textColor}; margin: 0 3px; font-weight: 600;">=</span><span class="url-param-value" style="color: ${textColor}; font-weight: 600;">${paramValue}</span></span>`;
                 firstParam = false;
             });
         }
