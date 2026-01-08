@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTM Generator - Track Your Marketing Campaigns</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔗 UTM Generator</h1>
+            <p class="subtitle">Generate tracking URLs for your marketing campaigns</p>
+        </header>
+
+        <div class="generator-wrapper">
+            <div class="form-section">
+                <h2>Base URL</h2>
+                <div class="input-group">
+                    <label for="baseUrl">Website URL *</label>
+                    <input type="url" id="baseUrl" placeholder="https://example.com/page" required>
+                </div>
+
+                <h2>UTM Parameters</h2>
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label for="utm_source">UTM Source *</label>
+                        <input type="text" id="utm_source" placeholder="google, facebook, newsletter" required>
+                        <small>Identify which site sent the traffic</small>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="utm_medium">UTM Medium *</label>
+                        <input type="text" id="utm_medium" placeholder="email, cpc, social" required>
+                        <small>Identify what type of link was used</small>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="utm_campaign">UTM Campaign *</label>
+                        <input type="text" id="utm_campaign" placeholder="spring_sale, product_launch" required>
+                        <small>Identify a specific product promotion or campaign</small>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="utm_id">UTM ID</label>
+                        <input type="text" id="utm_id" placeholder="12345">
+                        <small>Identify a specific ad campaign</small>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="utm_term">UTM Term</label>
+                        <input type="text" id="utm_term" placeholder="running shoes">
+                        <small>Identify search keywords (for paid search)</small>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="utm_content">UTM Content</label>
+                        <input type="text" id="utm_content" placeholder="logolink, textlink">
+                        <small>Identify what specifically was clicked</small>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="utm_source_platform">UTM Source Platform</label>
+                        <input type="text" id="utm_source_platform" placeholder="google_ads, facebook_ads">
+                        <small>Identify the advertising platform</small>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="utm_creative_format">UTM Creative Format</label>
+                        <input type="text" id="utm_creative_format" placeholder="banner, video, carousel">
+                        <small>Identify the creative format used</small>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="utm_marketing_tactic">UTM Marketing Tactic</label>
+                        <input type="text" id="utm_marketing_tactic" placeholder="retargeting, prospecting">
+                        <small>Identify the marketing strategy</small>
+                    </div>
+                </div>
+
+                <h2>Optional Parameters</h2>
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label for="email">Email Template Variable</label>
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="includeEmail" checked>
+                            <label for="includeEmail" class="checkbox-label">Include &email={{email}}</label>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="firstName">First Name Template Variable</label>
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="includeFirstName" checked>
+                            <label for="includeFirstName" class="checkbox-label">Include &firstName={{firstName}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="output-section">
+                <h2>Generated URL</h2>
+                <div class="url-preview">
+                    <div class="url-display" id="urlDisplay">
+                        <span class="placeholder">Enter a base URL to generate tracking link...</span>
+                    </div>
+                    <button class="copy-btn" id="copyBtn" disabled>
+                        <span class="copy-icon">📋</span>
+                        <span class="copy-text">Copy URL</span>
+                    </button>
+                </div>
+                <div class="url-breakdown" id="urlBreakdown"></div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h3>💡 Tips</h3>
+            <ul>
+                <li>Use lowercase and underscores for UTM values (e.g., <code>spring_sale</code>)</li>
+                <li>Keep your naming consistent across campaigns</li>
+                <li>Required fields are marked with *</li>
+                <li>The URL updates automatically as you type</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
