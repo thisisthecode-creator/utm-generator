@@ -40,10 +40,71 @@ includeFirstNameCheckbox.addEventListener('change', generateUrl);
 
 copyBtn.addEventListener('click', copyToClipboard);
 
+// Color mapping for UTM parameters
+const paramColors = {
+    'utm_source': '#6366f1',           // Indigo
+    'utm_medium': '#8b5cf6',           // Purple
+    'utm_campaign': '#ec4899',         // Pink
+    'utm_id': '#f59e0b',                // Amber
+    'utm_term': '#10b981',             // Green
+    'utm_content': '#3b82f6',          // Blue
+    'utm_source_platform': '#ef4444',   // Red
+    'utm_creative_format': '#06b6d4',  // Cyan
+    'utm_marketing_tactic': '#f97316',  // Orange
+    'email': '#14b8a6',                 // Teal
+    'firstName': '#a855f7'              // Violet
+};
+
 // Function to encode URL parameters
 function encodeParam(value) {
     if (!value || value.trim() === '') return null;
     return encodeURIComponent(value.trim());
+}
+
+// Function to escape HTML to prevent XSS
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+// Function to highlight URL parameters with colors
+function highlightUrlParams(url) {
+    try {
+        const urlObj = new URL(url);
+        const baseUrl = urlObj.origin + urlObj.pathname;
+        const hash = urlObj.hash;
+        const params = urlObj.searchParams;
+        
+        let highlightedUrl = `<span class="url-base">${escapeHtml(baseUrl)}</span>`;
+        
+        if (params.toString()) {
+            highlightedUrl += '<span class="url-separator">?</span>';
+            
+            let firstParam = true;
+            params.forEach((value, key) => {
+                const color = paramColors[key] || '#64748b';
+                const separator = firstParam ? '' : '<span class="url-ampersand">&</span>';
+                const paramName = escapeHtml(key);
+                const paramValue = escapeHtml(decodeURIComponent(value));
+                // Convert hex color to rgba for background
+                const r = parseInt(color.slice(1, 3), 16);
+                const g = parseInt(color.slice(3, 5), 16);
+                const b = parseInt(color.slice(5, 7), 16);
+                const bgColor = `rgba(${r}, ${g}, ${b}, 0.12)`;
+                highlightedUrl += `${separator}<span class="url-param" style="background: ${bgColor}; border-left: 3px solid ${color}; --param-color: ${color};"><span class="url-param-name" style="color: ${color}; font-weight: 600;">${paramName}</span>=<span class="url-param-value" style="color: ${color}; opacity: 0.9;">${paramValue}</span></span>`;
+                firstParam = false;
+            });
+        }
+        
+        if (hash) {
+            highlightedUrl += `<span class="url-hash">${escapeHtml(hash)}</span>`;
+        }
+        
+        return highlightedUrl;
+    } catch (e) {
+        return escapeHtml(url);
+    }
 }
 
 // Function to generate the UTM URL
@@ -123,8 +184,8 @@ function generateUrl() {
     const separator = baseUrl.includes('?') ? '&' : '?';
     const finalUrl = baseUrl + separator + params.toString();
 
-    // Display the URL
-    urlDisplay.textContent = finalUrl;
+    // Display the URL with color highlighting
+    urlDisplay.innerHTML = highlightUrlParams(finalUrl);
     urlDisplay.classList.remove('placeholder');
 
     // Display breakdown
@@ -150,7 +211,8 @@ function generateUrl() {
 
 // Function to copy URL to clipboard
 async function copyToClipboard() {
-    const url = urlDisplay.textContent;
+    // Get plain text URL (without HTML formatting)
+    const url = urlDisplay.textContent || urlDisplay.innerText;
     
     try {
         await navigator.clipboard.writeText(url);
