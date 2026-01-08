@@ -40,19 +40,19 @@ includeFirstNameCheckbox.addEventListener('change', generateUrl);
 
 copyBtn.addEventListener('click', copyToClipboard);
 
-// Color mapping for UTM parameters
+// Color mapping for UTM parameters (darker, more readable colors)
 const paramColors = {
-    'utm_source': '#6366f1',           // Indigo
-    'utm_medium': '#8b5cf6',           // Purple
-    'utm_campaign': '#ec4899',         // Pink
-    'utm_id': '#f59e0b',                // Amber
-    'utm_term': '#10b981',             // Green
-    'utm_content': '#3b82f6',          // Blue
-    'utm_source_platform': '#ef4444',   // Red
-    'utm_creative_format': '#06b6d4',  // Cyan
-    'utm_marketing_tactic': '#f97316',  // Orange
-    'email': '#14b8a6',                 // Teal
-    'firstName': '#a855f7'              // Violet
+    'utm_source': '#4f46e5',           // Darker Indigo
+    'utm_medium': '#7c3aed',           // Darker Purple
+    'utm_campaign': '#db2777',         // Darker Pink
+    'utm_id': '#d97706',                // Darker Amber
+    'utm_term': '#059669',             // Darker Green
+    'utm_content': '#2563eb',          // Darker Blue
+    'utm_source_platform': '#dc2626',   // Darker Red
+    'utm_creative_format': '#0891b2',  // Darker Cyan
+    'utm_marketing_tactic': '#ea580c',  // Darker Orange
+    'email': '#0d9488',                 // Darker Teal
+    'firstName': '#9333ea'              // Darker Violet
 };
 
 // Function to encode URL parameters
@@ -87,15 +87,15 @@ function highlightUrlParams(url) {
                 const separator = firstParam ? '' : '<span class="url-ampersand">&</span>';
                 const paramName = escapeHtml(key);
                 const paramValue = escapeHtml(decodeURIComponent(value));
-                // Convert hex color to rgba for background (lighter, more subtle)
+                // Convert hex color to rgba for very subtle background
                 const r = parseInt(color.slice(1, 3), 16);
                 const g = parseInt(color.slice(3, 5), 16);
                 const b = parseInt(color.slice(5, 7), 16);
-                const bgColor = `rgba(${r}, ${g}, ${b}, 0.08)`;
-                // Use darker, more readable version of the color for text
-                const textColor = color; // Keep original color but ensure full opacity
-                // Color the entire parameter including the equals sign with better readability
-                highlightedUrl += `${separator}<span class="url-param" style="background: ${bgColor}; border-left: 3px solid ${color}; padding: 3px 8px; margin: 0 3px;"><span class="url-param-name" style="color: ${textColor}; font-weight: 600;">${paramName}</span><span style="color: ${textColor}; margin: 0 2px;">=</span><span class="url-param-value" style="color: ${textColor}; font-weight: 500;">${paramValue}</span></span>`;
+                const bgColor = `rgba(${r}, ${g}, ${b}, 0.05)`;
+                // Use the darker color for text with full opacity for maximum readability
+                const textColor = color;
+                // Color the entire parameter with high contrast for readability
+                highlightedUrl += `${separator}<span class="url-param" style="background: ${bgColor}; border-left: 4px solid ${color}; padding: 4px 10px; margin: 0 4px;"><span class="url-param-name" style="color: ${textColor}; font-weight: 700; font-size: 1em;">${paramName}</span><span style="color: ${textColor}; margin: 0 3px; font-weight: 600;">=</span><span class="url-param-value" style="color: ${textColor}; font-weight: 600;">${paramValue}</span></span>`;
                 firstParam = false;
             });
         }
