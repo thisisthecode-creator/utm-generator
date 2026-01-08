@@ -120,9 +120,25 @@ header h1 {
 }
 
 .input-group small {
-    margin-top: 0.25rem;
+    margin-top: 0.5rem;
     color: var(--text-secondary);
     font-size: 0.85rem;
+    line-height: 1.6;
+    display: block;
+}
+
+.input-group small strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.input-group small code {
+    background: var(--background);
+    padding: 0.15rem 0.3rem;
+    border-radius: 3px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.9em;
+    color: var(--primary-color);
 }
 
 .checkbox-wrapper {

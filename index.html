@@ -26,55 +26,64 @@
                     <div class="input-group">
                         <label for="utm_source">UTM Source *</label>
                         <input type="text" id="utm_source" placeholder="google, facebook, newsletter" required>
-                        <small>Identify which site sent the traffic</small>
+                        <small><strong>Description:</strong> Identifies which website, platform, or source sent the traffic to your site.<br>
+                        <strong>Use Cases:</strong> Use for the name of the search engine (google, bing), social media platform (facebook, twitter, linkedin), newsletter name (weekly_newsletter), partner site, or any other traffic source. Examples: "google", "facebook", "newsletter", "partner_site", "direct_mail"</small>
                     </div>
 
                     <div class="input-group">
                         <label for="utm_medium">UTM Medium *</label>
                         <input type="text" id="utm_medium" placeholder="email, cpc, social" required>
-                        <small>Identify what type of link was used</small>
+                        <small><strong>Description:</strong> Identifies the marketing medium or channel type used to deliver the link.<br>
+                        <strong>Use Cases:</strong> Use to categorize the marketing channel. Common values: "email" (email campaigns), "cpc" (cost-per-click ads like Google Ads), "social" (social media posts), "organic" (organic search), "referral" (referral traffic), "display" (banner ads), "affiliate" (affiliate marketing), "sms" (text messages), "push" (push notifications)</small>
                     </div>
 
                     <div class="input-group">
                         <label for="utm_campaign">UTM Campaign *</label>
                         <input type="text" id="utm_campaign" placeholder="spring_sale, product_launch" required>
-                        <small>Identify a specific product promotion or campaign</small>
+                        <small><strong>Description:</strong> Identifies a specific product, promotion, or strategic campaign name.<br>
+                        <strong>Use Cases:</strong> Use to track specific marketing campaigns, product launches, seasonal promotions, or strategic initiatives. Examples: "spring_sale_2024", "product_launch_iphone15", "black_friday", "newsletter_signup", "webinar_january", "brand_awareness_q1". This helps you compare performance across different campaigns.</small>
                     </div>
 
                     <div class="input-group">
                         <label for="utm_id">UTM ID</label>
                         <input type="text" id="utm_id" placeholder="12345">
-                        <small>Identify a specific ad campaign</small>
+                        <small><strong>Description:</strong> A unique identifier for a specific ad campaign, often used by advertising platforms.<br>
+                        <strong>Use Cases:</strong> Use when you need to track a specific ad campaign ID from platforms like Google Ads, Facebook Ads, or other ad networks. This is particularly useful for A/B testing different ad variations or tracking performance of specific ad sets. Examples: "12345" (Google Ads campaign ID), "fb_67890" (Facebook campaign ID), "ad_set_abc123"</small>
                     </div>
 
                     <div class="input-group">
                         <label for="utm_term">UTM Term</label>
                         <input type="text" id="utm_term" placeholder="running shoes">
-                        <small>Identify search keywords (for paid search)</small>
+                        <small><strong>Description:</strong> Identifies the paid search keywords that triggered your ad, or other terms for tracking.<br>
+                        <strong>Use Cases:</strong> Primarily used for paid search campaigns to track which keywords are driving traffic and conversions. Also useful for tracking specific terms in other contexts. Examples: "running shoes", "best laptop 2024", "marketing software", "discount code". This helps you identify which keywords are most effective for your campaigns.</small>
                     </div>
 
                     <div class="input-group">
                         <label for="utm_content">UTM Content</label>
                         <input type="text" id="utm_content" placeholder="logolink, textlink">
-                        <small>Identify what specifically was clicked</small>
+                        <small><strong>Description:</strong> Identifies what specific link or creative element was clicked to differentiate similar content.<br>
+                        <strong>Use Cases:</strong> Use to A/B test different versions of the same campaign or to track which specific element was clicked. Examples: "logolink" vs "textlink" (different link types in email), "banner_top" vs "banner_sidebar" (different ad placements), "cta_button" vs "text_link" (different CTA styles), "email_v1" vs "email_v2" (different email versions). This helps optimize which content performs best.</small>
                     </div>
 
                     <div class="input-group">
                         <label for="utm_source_platform">UTM Source Platform</label>
                         <input type="text" id="utm_source_platform" placeholder="google_ads, facebook_ads">
-                        <small>Identify the advertising platform</small>
+                        <small><strong>Description:</strong> Identifies the specific advertising or marketing platform where the campaign is running.<br>
+                        <strong>Use Cases:</strong> Use to track which advertising platform is generating traffic when you're running campaigns across multiple platforms. Examples: "google_ads", "facebook_ads", "linkedin_ads", "twitter_ads", "tiktok_ads", "microsoft_ads", "amazon_ads". This helps you compare ROI across different advertising platforms and allocate budget more effectively.</small>
                     </div>
 
                     <div class="input-group">
                         <label for="utm_creative_format">UTM Creative Format</label>
                         <input type="text" id="utm_creative_format" placeholder="banner, video, carousel">
-                        <small>Identify the creative format used</small>
+                        <small><strong>Description:</strong> Identifies the format or type of creative asset used in the campaign.<br>
+                        <strong>Use Cases:</strong> Use to track which creative formats perform best. Examples: "banner" (static banner ads), "video" (video ads), "carousel" (carousel/slideshow ads), "image" (single image ads), "gif" (animated GIFs), "interactive" (interactive ads), "story" (story format ads). This helps you understand which creative formats resonate best with your audience and drive more engagement.</small>
                     </div>
 
                     <div class="input-group">
                         <label for="utm_marketing_tactic">UTM Marketing Tactic</label>
                         <input type="text" id="utm_marketing_tactic" placeholder="retargeting, prospecting">
-                        <small>Identify the marketing strategy</small>
+                        <small><strong>Description:</strong> Identifies the marketing strategy or tactic being used in the campaign.<br>
+                        <strong>Use Cases:</strong> Use to categorize your marketing approach and track which strategies are most effective. Examples: "retargeting" (targeting previous visitors), "prospecting" (finding new customers), "remarketing" (re-engaging past customers), "lookalike" (targeting similar audiences), "brand_awareness" (building brand recognition), "conversion" (driving purchases), "lead_generation" (collecting leads), "engagement" (increasing interaction). This helps you optimize your marketing mix and understand which tactics drive the best results.</small>
                     </div>
                 </div>
 
@@ -86,6 +95,8 @@
                             <input type="checkbox" id="includeEmail" checked>
                             <label for="includeEmail" class="checkbox-label">Include &email={{email}}</label>
                         </div>
+                        <small><strong>Description:</strong> Adds a template variable for email personalization in email marketing platforms.<br>
+                        <strong>Use Cases:</strong> When enabled, this adds <code>&email={{email}}</code> to your URL. Email marketing platforms (like Mailchimp, SendGrid, Klaviyo) will automatically replace <code>{{email}}</code> with each recipient's email address. This is useful for tracking individual email opens and clicks, personalizing landing pages, or pre-filling forms with the recipient's email.</small>
                     </div>
 
                     <div class="input-group">
@@ -94,6 +105,8 @@
                             <input type="checkbox" id="includeFirstName" checked>
                             <label for="includeFirstName" class="checkbox-label">Include &firstName={{firstName}}</label>
                         </div>
+                        <small><strong>Description:</strong> Adds a template variable for first name personalization in email marketing platforms.<br>
+                        <strong>Use Cases:</strong> When enabled, this adds <code>&firstName={{firstName}}</code> to your URL. Email marketing platforms will automatically replace <code>{{firstName}}</code> with each recipient's first name. This is useful for personalizing landing pages, greeting users by name, or tracking which contacts are engaging with your campaigns.</small>
                     </div>
                 </div>
             </div>
