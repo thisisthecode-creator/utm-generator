@@ -169,17 +169,18 @@ header h1 {
 
 .url-display {
     flex: 1;
-    padding: 1rem;
+    padding: 1.25rem;
     background: var(--background);
     border: 2px solid var(--border-color);
     border-radius: 8px;
     word-break: break-all;
     font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-    font-size: 0.9rem;
-    line-height: 1.6;
+    font-size: 0.95rem;
+    line-height: 1.8;
     min-height: 80px;
     display: flex;
     align-items: center;
+    color: var(--text-primary);
 }
 
 .url-base {
@@ -201,18 +202,26 @@ header h1 {
 
 .url-param {
     margin: 0 2px;
-    padding: 2px 6px;
-    border-radius: 4px;
+    border-radius: 6px;
     transition: all 0.2s;
     display: inline-block;
     position: relative;
+    text-decoration: none;
+    cursor: default;
+}
+
+.url-param-name {
+    text-decoration: none;
+}
+
+.url-param-value {
+    text-decoration: none;
 }
 
 .url-param:hover {
     transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    filter: brightness(1.15);
-    opacity: 0.95;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    filter: brightness(1.05);
 }
 
 .url-hash {

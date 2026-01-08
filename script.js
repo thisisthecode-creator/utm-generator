@@ -87,13 +87,15 @@ function highlightUrlParams(url) {
                 const separator = firstParam ? '' : '<span class="url-ampersand">&</span>';
                 const paramName = escapeHtml(key);
                 const paramValue = escapeHtml(decodeURIComponent(value));
-                // Convert hex color to rgba for background
+                // Convert hex color to rgba for background (lighter, more subtle)
                 const r = parseInt(color.slice(1, 3), 16);
                 const g = parseInt(color.slice(3, 5), 16);
                 const b = parseInt(color.slice(5, 7), 16);
-                const bgColor = `rgba(${r}, ${g}, ${b}, 0.15)`;
-                // Color the entire parameter including the equals sign
-                highlightedUrl += `${separator}<span class="url-param" style="background: ${bgColor}; border-left: 3px solid ${color}; color: ${color};"><span class="url-param-name" style="color: ${color}; font-weight: 700;">${paramName}</span><span style="color: ${color}; opacity: 0.8;">=</span><span class="url-param-value" style="color: ${color}; opacity: 0.9;">${paramValue}</span></span>`;
+                const bgColor = `rgba(${r}, ${g}, ${b}, 0.08)`;
+                // Use darker, more readable version of the color for text
+                const textColor = color; // Keep original color but ensure full opacity
+                // Color the entire parameter including the equals sign with better readability
+                highlightedUrl += `${separator}<span class="url-param" style="background: ${bgColor}; border-left: 3px solid ${color}; padding: 3px 8px; margin: 0 3px;"><span class="url-param-name" style="color: ${textColor}; font-weight: 600;">${paramName}</span><span style="color: ${textColor}; margin: 0 2px;">=</span><span class="url-param-value" style="color: ${textColor}; font-weight: 500;">${paramValue}</span></span>`;
                 firstParam = false;
             });
         }
