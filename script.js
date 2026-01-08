@@ -91,8 +91,9 @@ function highlightUrlParams(url) {
                 const r = parseInt(color.slice(1, 3), 16);
                 const g = parseInt(color.slice(3, 5), 16);
                 const b = parseInt(color.slice(5, 7), 16);
-                const bgColor = `rgba(${r}, ${g}, ${b}, 0.12)`;
-                highlightedUrl += `${separator}<span class="url-param" style="background: ${bgColor}; border-left: 3px solid ${color}; --param-color: ${color};"><span class="url-param-name" style="color: ${color}; font-weight: 600;">${paramName}</span>=<span class="url-param-value" style="color: ${color}; opacity: 0.9;">${paramValue}</span></span>`;
+                const bgColor = `rgba(${r}, ${g}, ${b}, 0.15)`;
+                // Color the entire parameter including the equals sign
+                highlightedUrl += `${separator}<span class="url-param" style="background: ${bgColor}; border-left: 3px solid ${color}; color: ${color};"><span class="url-param-name" style="color: ${color}; font-weight: 700;">${paramName}</span><span style="color: ${color}; opacity: 0.8;">=</span><span class="url-param-value" style="color: ${color}; opacity: 0.9;">${paramValue}</span></span>`;
                 firstParam = false;
             });
         }
